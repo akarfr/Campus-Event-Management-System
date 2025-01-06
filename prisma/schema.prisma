@@ -19,7 +19,7 @@ model User {
   fullname        String?
   email           String        @unique
   hashedPassword  String
-  messages        Message[]
+  // messages        Message[]
   attendts        Attend[]
   role            UserRole      @default(ATTENDEE)
 
@@ -60,13 +60,13 @@ model Attend {
   updatedAt       DateTime      @updatedAt
 }
 
-model Message {
-  id              Int           @id @default(autoincrement())
+// model Message {
+//   id              Int           @id @default(autoincrement())
 
-  content         String?
-  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId          Int
+//   content         String?
+//   user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+//   userId          Int
 
-  createdAt       DateTime      @default(now()) 
-  updatedAt       DateTime      @updatedAt
-}
+//   createdAt       DateTime      @default(now()) 
+//   updatedAt       DateTime      @updatedAt
+// }
