@@ -20,7 +20,7 @@ model User {
   email           String        @unique
   hashedPassword  String
   // messages        Message[]
-  attendts        Attend[]
+  attends         Attend[]
   role            UserRole      @default(ATTENDEE)
 
   createdAt       DateTime      @default(now()) 
@@ -53,6 +53,8 @@ model Attend {
   userId          Int
   event           Event         @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId         Int
+  
+  approved        Boolean       @default(false)
 
   isAttended      Boolean       @default(false)
 
