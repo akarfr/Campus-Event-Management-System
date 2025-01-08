@@ -54,12 +54,18 @@ model Attend {
   event           Event         @relation(fields: [eventId], references: [id], onDelete: Cascade)
   eventId         Int
   
-  approved        Boolean       @default(false)
+  status          AttendStatus  @default(PENDING)
 
   isAttended      Boolean       @default(false)
 
   createdAt       DateTime      @default(now()) 
   updatedAt       DateTime      @updatedAt
+}
+
+enum AttendStatus {
+  PENDING
+  APPROVED
+  REJECTED
 }
 
 // model Message {

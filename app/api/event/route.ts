@@ -23,6 +23,10 @@ export async function POST(request: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
+    if (currentUser.role != "ORGANIZER") {
+      return new NextResponse("Forbidden", { status: 403 });
+    }
+
     if (!name || !location || !dateTime || !type) {
       return new NextResponse("Missing info", { status: 400 });
     }
